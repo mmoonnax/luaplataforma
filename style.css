@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./arquivos.luana/bg-mobile.jpg);
+  --stroke-color: rgb(255, 255, 255, 0.5);
+  --surface-color: rgb(255, 255, 255, 0.05);
+  --surface-color-hover: rgb(0, 0, 0, 0.02);
+  --highlight-color: rgb(255, 255, 255, 0.02);
+  --switch-bg-url: url(./arquivos.luana/MoonStars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./arquivos.luana/bg-mobile-light.jpg);
+  --stroke-color: rgb(0, 0, 0, 0.5);
+  --surface-color: rgb(0, 0, 0, 0.05);
+  --surface-color-hover: rgb(0, 0, 0, 0.02);
+  --highlight-color: rgb(0, 0, 0, 0.1);
+  --switch-bg-url: url(./arquivos.luana/sun.svg);
+}
+
+body {
+  /* VERSÃO EXTENDIDA PRA ENTENDER!!!!
+  background-image: url(./bg-mobile.jpg);
+  ((onde está a imagem ( o ./ mostra que a imagem está na pasta que estamos utilizando)))
+  background-repeat: no-repeat;
+  (( sem repetir a imagem ))
+  background-position: top center;
+  (( centralizar (center) e (top) é alinhar com o topo da imagem))
+  background-size: cover;
+  (( cobrir toda a area do fundo))
+  ((contain seria para deixar a imagem dentro do body))
+  */
+
+  /*background: color image repeat position/size*/
+  background: var(--bg-url) top center/cover;
+}
+body * {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  /*border: 1px solid pink; 
+  é a caixa esse border, como a gente já entendeu eu deixei ela comentada para poder lembrar dela no futuro gatinha :)
+  */
+  margin: 56px auto 0px;
+
+  /* margin é como um relógio, temos o top, o right, o bottom e o left.
+  botou no margin: apenas 1 valor de px é aplicado para todos, 2 valores de px o primeiro vai em cima e em baixo e o outro valor par as laterais, se colocar 3 valores o primeiro vai para cima, o segundo nas laterais e o ultimo é o de baixo e se colocar todos vai ser na ordem do relógio, onde 1 é top, o 2 é right o 3 é bottom e o 4 é o left :) do carai mas da pra entender */
+}
+
+/* profile */
+
+#profile {
+  text-align: center;
+  padding: 24px;
+  /* da para colocar o pai dele o profile sem ser o profile img como texto centralizado, ai tu mete a imagem no meio!! CHAMA*/
+}
+#profile img {
+  width: 112px;
+  /* display pode vir em block ou inline*/
+  /* em imagem inline não da pra colocar o margin em auto */
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+
+#switch {
+  /* border: 1px solid pink; -- pra estudo */
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  /*z-index serve pra colocar na camada certa*/
+  transform: translatey(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links  */
+
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+/* pseudo-selector, aplica as coisas quando o mouse passa em cima */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* social links*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 24px 0;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
