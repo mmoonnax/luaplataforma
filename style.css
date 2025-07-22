@@ -103,11 +103,19 @@ body * {
   z-index: 1;
   /*z-index serve pra colocar na camada certa*/
   transform: translatey(-50%);
+
+  animation: slide-back 0.2s;
+}
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
+  /*  ( sem animação )
   right: 0;
-  left: initial;
+  left: initial;*/
+  animation: slide-in 0.4s forwards;
+  /* o forwards serve para manter no final da animação o botão no lugar e não voltar a zero*/
 }
 
 #switch span {
@@ -195,5 +203,22 @@ footer {
   }
   .light {
     --bg-url: url(./arquivos.luana/bg-desktop-light.jpg);
+  }
+}
+/*animação*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
